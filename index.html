@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clocks</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/gallery.css">
+  <script>
+    var generateClockCard = function(div, ClockClass) {
+      // Generates the HTML code to display the clockObs with metadata and puts it as innerHTML of div
+      const randID = Math.floor(Math.random() * 1000000).toString(); // generate random ID so no div id conflicts between cards
+      const html = `
+      <div class="clock-card">
+        <div class="clock" id="${randID}"></div>
+        <div class="metadata" id="${randID}-metadata">
+          <div>
+            <span class="metadataTitle">Name:</span>
+            <span class="metadataValue" id="${randID}-name"></span>
+          </div>
+          <div>
+            <span class="metadataTitle">Author:</span>
+            <span class="metadataValue" id="${randID}-author"></span>
+          </div>
+          <div>
+            <span class="metadataTitle">Description:</span>
+            <span class="metadataValue" id="${randID}-description"></span>
+          </div>
+          <div>
+            <span class="metadataTitle">Tags:</span>
+            <span class="metadataValue" id="${randID}-tags"></span>
+          </div>
+        </div>
+      </div>
+      `;
+      document.getElementById(div).innerHTML = html;
+
+      // Instantiate the clock
+      const clock = new ClockClass(randID);
+
+      // Populate the card
+      document.getElementById(`${randID}-name`).innerText = ClockClass.metadata.name;
+      document.getElementById(`${randID}-author`).innerText = ClockClass.metadata.author;
+      document.getElementById(`${randID}-description`).innerText = ClockClass.metadata.description;
+      document.getElementById(`${randID}-tags`).innerText = ClockClass.metadata.tags.join(', ');
+
+      return randID;
+    }
+  </script>
+</head>
+<body>
+
+  <div id="header">
+    <h1>Clocks</h1>
+    <p>Clocks are cool. Below is my creative space to build and showcase my attempts to measure time in a variety of ways.</p>
+  </div>
+
+  <div id="gallery">
+
+    <!-- boring -->
+    <div id="boring"></div>
+    <script type="module">
+      import { BoringClock } from './boring/boring.js';
+      generateClockCard('boring', BoringClock);
+    </script>
+
+    <!-- ascii digital -->
+    <div id="ascii-digital"></div>
+    <script type="module">
+      import { AsciiDigitalClock } from './ascii-digital/ascii-digital.js';
+      generateClockCard('ascii-digital', AsciiDigitalClock);
+    </script>
+
+  </div>
+  
+</body>
+</html>

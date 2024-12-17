@@ -1,0 +1,33 @@
+body {
+  background-color: #333;
+  color: #ccc;
+}
+
+#header {
+  text-align: center;
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
+
+#gallery {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.clock-card {
+  background-color: #222;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #444;
+}
+
+.clock-card:hover {
+  background-color: #222;
+  box-shadow: 5px 5px 20px #666;
+  color:#ddd;
+}

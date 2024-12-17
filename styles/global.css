@@ -1,0 +1,24 @@
+.middle-div {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.clock {
+  padding: 10px;
+  margin: 10px;
+}
+
+.metadata {
+  padding: 10px;
+  max-width: 300px;
+  font-family: monospace;
+  font-size:14px;
+  border-top:solid 1px;
+}
+
+.metadataTitle {
+  font-weight: 800;
+}
